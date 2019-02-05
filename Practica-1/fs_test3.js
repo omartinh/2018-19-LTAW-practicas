@@ -14,5 +14,4 @@ fs.readFile('test.txt', 'utf8', function (err, data){
 //-- En js funciones son objetos: la linea se lee: Lanzar la lectura fichero txt
 //-- y seguir ejecutando instrucciones; cuando el fichero se haya leido, ejecuta instr entre llaves
 
-
 console.log("__FIN DEL CODIGO__")
