@@ -17,12 +17,31 @@ http.createServer((req, res) => {
   console.log("pathname: " + q.pathname)
 
   //-- Crear mensaje respuesta. 1º la cabecera
-  //-- El codigo 200 se usa para indicar
+  //-- El codigo 200 se usa para indicar q todo ok
+  //-- En el campo Content-tpye tenemos que introducir el tipo MIME
+  //-- de lo q devolvemos
 
-  var qdata = q.query
-  console.log(qdata)
+  var mime = "text/html"
+  res.writeHead(200, {'Content-Type': mime});
 
-  //-- Acceso al objeto
-  console.log("Articulo: " + qdata.articulo)
-  console.log("Color: " + qdata.color)
+  //-- Ahora escribimos el cuerpo: los datos a enviar, en html
+  //-- En este ejemplo se envia directamente el html
+
+  var msg = `
+    <!DOCTYPE html>
+    <html lang="es" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Mi tienda</title>
+      </head>
+      <body>
+        <p> WELCOME!</p>
+      </body>
+    </html>
+  `
+
+  //-- Meter el mensaje en la respuesta
+  res.write(msg);
+  //--Ahora terminamos la respuesta, invocando el metido tienda
+  res.end();
 }).listen(8080);
