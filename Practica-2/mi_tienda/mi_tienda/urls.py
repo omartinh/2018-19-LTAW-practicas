@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mi_tienda.views import mi_funcion
+from mi_tienda.views import mi_producto
 
 urlpatterns = [
     url(r'^hola/', mi_funcion),
+    url(r'^producto/(\d{1,2})/$',mi_producto),
     url(r'^test/', admin.site.urls),
 ]
