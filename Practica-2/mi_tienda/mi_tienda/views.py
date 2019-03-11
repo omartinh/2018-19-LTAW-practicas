@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.template.loader import get_template
 from django.template import Template, Context
 
 def mi_funcion(request):
@@ -11,12 +12,11 @@ def mi_producto(request, param):
 	return HttpResponse(html)
 
 def index(request):
-    fp = open('/Users/ojkkkr/Documents/UNIVERSIDAD-18-19/Laboratorios/2018-19-LTAW-practicas/Practica-2/mi_tienda/templates/main.html')
-    t = Template(fp.read())
-    fp.close()
-    c = Context({'user': 'OJKKKR'})
+    t = get_template('main.html')
+    c = {'user': 'OJKKKR'}
     html = t.render(c)
     return HttpResponse(html)
+
 
 PLANTILLA = """
 <!DOCTYPE html>
