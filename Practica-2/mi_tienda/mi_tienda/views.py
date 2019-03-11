@@ -1,15 +1,22 @@
 from django.http import HttpResponse
 from django.template import Template, Context
- #Mi_funcion() crea un mensaje respuesta Http que contiene una cadena
+
 def mi_funcion(request):
-    html = "Hola! Mi primera URL!!"
-    return HttpResponse(html)
+	html = "Hola! Mi primera UrL!!"
+	return HttpResponse(html)
 
 def mi_producto(request, param):
-    numero = int(param)
-    html = "Acceso a producto: %i" % numero;
+	numero = int(param)
+	html = "Acceso a producto: %i" % numero;
+	return HttpResponse(html)
+
+def index(request):
+    fp = open('/Users/ojkkkr/Documents/UNIVERSIDAD-18-19/Laboratorios/2018-19-LTAW-practicas/Practica-2/mi_tienda/templates/main.html')
+    t = Template(fp.read())
+    fp.close()
+    c = Context({'user': 'OJKKKR'})
+    html = t.render(c)
     return HttpResponse(html)
-#param --> tipo cadena en este caso solo enviamos en el mensaje de request
 
 PLANTILLA = """
 <!DOCTYPE html>
@@ -29,7 +36,7 @@ def saludo(request):
     t = Template(PLANTILLA)
 
     # -- Crear el contexto: Nombre de usuario real
-    c = Context({'user':'A Boogie Wit da Hoodie'})
+    c = Context({'user':'A Goonie Wit da Hoodie'})
 
     # -- Obtener la pagina html final
     html = t.render(c)
