@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>1995Brand</title>
+    <link rel="stylesheet" href="{% static 'mi-css.css'%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <center>
+      <a href="./index.html">
+        <img src="/static/logo.png" alt="LOGO" height="100" width="300">
+      </a>
+    <table>
+
+      {% for product in products%}
+      <center>
+      <td><img src='{{ product.image }}' width="300" height="300"></td>
+          <tr>
+            <td><center>{{product.name}}</center></td>
+          </tr>
+          <tr>
+            <td><center>PRICE: {{product.price}} EUROS</center></td>
+          </tr>
+      {% endfor %}
+    </table>
+    </center>
+    <div class="footer">
+        <i class='far fa-copyright'> 2019    1 9 9 5  B R A N D </i>
+    </div>
+  </body>
+</html>

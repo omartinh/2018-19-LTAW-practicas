@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Template, Context
+from django.shortcuts import render
 
 def mi_funcion(request):
 	html = "Hola! Mi primera UrL!!"
@@ -12,10 +13,7 @@ def mi_producto(request, param):
 	return HttpResponse(html)
 
 def index(request):
-    t = get_template('main.html')
-    c = {'user': 'OJKKKR'}
-    html = t.render(c)
-    return HttpResponse(html)
+    return render(request, 'main.html', {'user':'OJKKKR'})
 
 
 PLANTILLA = """
