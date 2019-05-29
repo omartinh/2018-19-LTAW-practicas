@@ -5,14 +5,16 @@
     <title>MI CHAT</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="chat-client.js"></script>
-    <link rel="stylesheet" href="/css/mi-style.css">
+    <link rel="stylesheet" href="chatstyle.css">
   </head>
-  <body class="style" onload="main();">
-    <h1>C H A T </h1>
+  <body onload="main();">
+    <h1><center>C H A T</center></h1>
     <div>
       <p id="display"></p>
     </div>
-    <input id="msg" autocomplete="off" />
-    <button type="button" id="send">SEND</button>
+    <center>
+      <input id="msg" autocomplete="off" />
+      <button type="button" id="send">SEND</button>
+    </center>
   </body>
 </html>
