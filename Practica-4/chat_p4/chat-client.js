@@ -1,4 +1,5 @@
 function main() {
+  var nick = prompt("Whats your nick??");
   console.log("Hola!!!!-------------")
 
   //-- Crear el websocket
@@ -15,6 +16,11 @@ function main() {
   //-- Caja con el mensaje a enviar
   var msg = document.getElementById("msg")
 
+  //--var nick = document.getElementById("nick")
+  socket.emit('new_client', nick);
+
+  console.log(nick + ": Se ha conectado");
+
   //-- Cuando se aprieta el botón de enviar...
   send.onclick = () => {
 
@@ -24,10 +30,10 @@ function main() {
     //-- Lo notificamos en la consola del navegador
     console.log("Mensaje emitido")
   }
-    //-- Cuando se reciba un mensaje del servidor se muestra
-    //-- en el párrafo
-    socket.on('new_message', msg => {
-      display.innerHTML = msg;
-    });
+  //-- Cuando se reciba un mensaje del servidor se muestra
+  //-- en el párrafo
+  socket.on('new_message', msg => {
+    display.innerHTML += msg + '<br>';
+  });
 
 }
